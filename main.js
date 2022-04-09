@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const multer  = require('multer');
 const db = require("./database");
 const app = express()
 const port = 3000
@@ -9,21 +10,46 @@ app.set('view engine','ejs');
 // initiate database connection
 db.init();
 
+// middlewares
+app.use(express.urlencoded())
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res) {
 	res.render('home');
 })
 
+//multer
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+	  cb(null, 'uploads')
+	},
+	filename: function (req, file, cb) {
+	  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+	  cb(null, file.fieldname + '-' + uniqueSuffix)
+	}
+  })
+  
+  const upload = multer({ storage: storage })
+  
 
-app.get('/login', (req, res) => {
+app.get('/login', function(req, res) {
 	res.render('login');
 })
 
-app.get('/signup', (req, res) => {
+app.route("/signup").get(function(req, res) 
+{
 	res.render('signup');
+
+}).post(upload.single("profile_pic"), (function(req, res){
+const username = req.body;
+const password = req.body;
+const file = req.file;
+
+console.log(username, password, file);
 })
+
+)
+
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
 })
- 

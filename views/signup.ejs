@@ -1,8 +1,8 @@
 <div>
-    <form action="/signup" method="post">
-    <input placeholder="Enter Username"/> 
-    <input placeholder="Enter Password"/>
-    <input type="file"/>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+    <input name="username" placeholder="Enter Username"/> 
+    <input name="password" placeholder="Enter Password"/>
+    <input name="profile_pic" type="file"/>
 
     <input type="submit" value="signup"/>
     </form>
