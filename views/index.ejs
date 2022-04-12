@@ -7,31 +7,23 @@
 	<title></title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/product.css">
+	<link rel="stylesheet" href="product.css">
 </head>
 
 <body>
 
 <%- include("partials/header", { name: name, profile_pic: pic }) %>
 
-
-
 <div id="big-container">
 <% for(i=0;i<5+proNum && i<products.length ;i++){ %>
   
-
-
   <section class="product">
 		<div class="product__photo ">
 			<div class="photo-container" >
 				<div class="photo-main">
 					<div class="controls">
-						<i class="fa fa-share-alt "></i>
-						<i class="fa fa-heart-o " style="float:right; "></i>
 					</div>
-					<img class="apple" src="<%= products[i].productPic %>"
-						alt="green apple slice">
+					<img class="prodImg" src="<%= products[i].productPic %>">
 				</div>
 				<button class="descriptionBtn">View Description</button>
 			</div>
@@ -39,10 +31,9 @@
 		<div class="product__info">
 			<div class="title">
 				<h1><%= products[i].name %> </h1>
-				<span id="code">CODE: 45999</span>
 			</div>
 			<div class="price">
-		<span id="currency-sign"> R$ </span> <span id="price"><%= products[i].price %></span>
+		<span id="currency-sign"> ₹ </span> <span id="price"><%= products[i].price %></span>
 			</div>
 		
 			<div  class="description">
@@ -58,19 +49,17 @@
 </div>
 
 
-
 <% if(i == products.length ){ %>
   <button disabled id="loadBtn" >Load more</button>
 <%}else {%>
   <button id="loadBtn" >Load more</button>
 <%}%>
 
+
 <script>
 
     var desc = document.getElementById("desc"); 
     
-
-
       [...document.querySelectorAll('.descriptionBtn')].forEach(function(item) {
           item.addEventListener('click', function(e) {
           console.log(e.path[3].children[1].children[2]);

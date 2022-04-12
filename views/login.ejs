@@ -1,7 +1,44 @@
-<div>
-    <form action="/login" method="post">
-    <input placeholder="Enter Username"/> 
-    <input placeholder="Enter Password"/>
-    <input type="submit" value="login"/>
-    </form>
-</div>
+<html>
+   <link rel="stylesheet" href="style.css">
+<body>
+
+    <div id="loginContainer">
+      <h2>Login In</h2>
+      <div id="loginDetailContainer">
+      <form action="/login" method="post">
+        <input class="inputContainer" type="text" placeholder="enter username" name="username"/><br>
+        <input class="inputContainer" id="myInput" type="password" placeholder="enter password" name="password"/><br>
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <span>Not a member? <a href="/signup" id="signupBtn">Signup</a></span><br>
+        <input id="btn" type="submit" value="LOGIN"/>
+      </form>
+      </div>
+    </div>
+
+</body>
+
+<script>
+  function myFunction() {
+  var x = document.getElementsById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
