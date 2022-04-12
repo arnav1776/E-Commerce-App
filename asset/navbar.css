@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    background-color: rgb(216, 226, 196);
+}
+
+.user-details{
+
+    display: flex;
+    align-items: center;
+}
+
+.user-details img{
+  max-width: 10%;
+  margin: 1rem;
+}
+
+.navbar h1,h2{
+  margin: 0;
+  color: black;
+}
+
+#logout{
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+    color: black;
+    border: 1px solid;
+}
+
+#logout a{
+  color: black;
+}

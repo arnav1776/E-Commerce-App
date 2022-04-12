@@ -1,0 +1,81 @@
+body{
+    background-image: url("https://cdn.dribbble.com/users/1162077/screenshots/4318436/media/1e17490dd92ca27c4a6274ab7bff5b11.png?compress=1&resize=400x300");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    
+     
+  }
+  
+  #loginContainer{
+      background-color: wheat;
+      color: black;
+      width: 25rem;
+      height: 27rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  
+  .inputContainer{
+      width: 15rem;
+      height: 2.5rem;
+      border-radius: 5px;
+      border: 1px;
+      padding-left: 1rem;
+      margin-bottom: 0px;
+      margin-top: 0px;
+  }
+  
+  #btn{
+      height: 2.5rem;
+      border-radius: 10px;
+      color: black;
+      font-size: 1.3rem;
+      width: 15rem;
+  }
+  
+  #btn:hover{
+  background-color: #a3df1e;
+  }
+
+  #signup{
+    color: red;
+  }  
+  
+  form{
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0px;
+  }
+  
+  
+  input[type=file]::file-selector-button {
+    border: 2px solid #5741ff;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #5192e7;
+    transition: 1s;
+    margin-left: 10px;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+  }
+  
+  span{
+    color: black;
+    font-size: 1rem;
+  }
+  
+  span a{
+    color: red;
+  }
+  
+ 
