@@ -12,6 +12,9 @@
         <span>Not a member? <a href="/signup" id="signupBtn">Signup</a></span><br>
         <input id="btn" type="submit" value="LOGIN"/>
       </form>
+    <% if(error) {%>
+    <h2> <%= error %> </h2>
+    <% } %>
       </div>
     </div>
 
