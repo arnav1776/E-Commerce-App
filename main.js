@@ -23,7 +23,7 @@ db.init();
 
 app.use(express.static("asset"));
 app.use(express.static("uploads"))
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 app.use(session({
   secret: 'bahut badhiya wala secert spice',
