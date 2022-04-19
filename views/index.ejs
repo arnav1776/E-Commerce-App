@@ -1,89 +1,56 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="product.css">
-</head>
+<link rel="stylesheet" href="/product.css">
 
+</head>
 <body>
 
-<%- include("partials/header", { name: name, profile_pic: pic }) %>
+<div class="navbar">
+  <a href="/home">Home</a>
+  <!---<a href="#news">News</a>--->
 
-<div id="big-container">
-<% for(i=0;i<5+proNum && i<products.length ;i++){ %>
-  
-  <section class="product">
-		<div class="product__photo ">
-			<div class="photo-container" >
-				<div class="photo-main">
-					<div class="controls">
-					</div>
-					<img class="prodImg" src="<%= products[i].productPic %>">
-				</div>
-				<button class="descriptionBtn">View Description</button>
-			</div>
-		</div>
-		<div class="product__info">
-			<div class="title">
-				<h1><%= products[i].name %> </h1>
-			</div>
-			<div class="price">
-		<span id="currency-sign"> ₹ </span> <span id="price"><%= products[i].price %></span>
-			</div>
-		
-			<div  class="description">
-				<h3 class="description-text">DESCRIPTION</h3>
-				<p style ="display:none"><%= products[i].description %></p>
-			</div>
-			
-		</div>
-	</section>
+  <% if(!userLogin) {%>
+    <a href="/login">Login / Signup</a>
+    <a href="/admin/login">Admin Login</a>
 
+  <% } else { %>
 
-<% } %>  
+  <div class="dropdown">
+    <button class="dropbtn">Your Account
+    <!---<img src="<%= profile_pic %>"/>--->
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/viewmycart">My Cart</a>
+      <a href="/updatePass">Update Password</a>
+      <a href="/logout">LogOut</a>
+      <!---<a href="#">Link 3</a>--->
+    </div>
+  </div> 
+  <% }%>
 </div>
 
+<br>
 
-<% if(i == products.length ){ %>
-  <button disabled id="loadBtn" >Load more</button>
-<%}else {%>
-  <button id="loadBtn" >Load more</button>
-<%}%>
+<div class="products">
+
+</div>
+
+<button type="button" class="loadBtn" style="margin-top: 25px;">Load More</button>
+
+<!---<img src="<%= profile_pic %>" alt="profile pic"/>--->
+
+<div id="toast">
+  <div class="checkicon">  </div>
+LOGIN TO CONTINUE</div>
 
 
-<script>
-
-    var desc = document.getElementById("desc"); 
-    
-      [...document.querySelectorAll('.descriptionBtn')].forEach(function(item) {
-          item.addEventListener('click', function(e) {
-          console.log(e.path[3].children[1].children[2]);
-          console.log(e);
-          e.path[3].children[1].children[2].children[1].style.display = "block"; 
-          
-          });
-       });
-
-      loadBtn.addEventListener("click", function(){
-          
-          var req = new XMLHttpRequest();
-
-          req.open("GET", "/getproduct");
-          req.send();
-          req.addEventListener("load", function(){
-              location.reload();
-          })
-          location.reload();
-
-      })
-
-</script>
+<!---<div id="toast">
+  <div class="checkicon"> </div>
+LOGIN TO CONTINUE</div>--->
 
 </body>
+
+<script src="/viewer.js"></script>
 
 </html>

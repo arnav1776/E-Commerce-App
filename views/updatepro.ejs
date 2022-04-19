@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+<link rel="stylesheet" href="/adminProductForm.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/home">Home</a>
+
+  <div class="drop">
+    <button class="dropbtn">Your Account
+
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-con">
+      <a href="/admin/products">My Products</a>
+      <a href="/admin/updatePass">Update Password</a>
+      <a href="/logout">LogOut</a>
+      <!---<a href="#">Link 3</a>--->
+    </div>
+  </div> 
+</div>
+
+<div class="center-align">
+  <h1>Update Product</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <form class="col s12" method="POST" action="/admin/updateproduct/<%= data._id%>" enctype="multipart/form-data">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Product Name" id="product_name" type="text" class="validate" name="name" value="<%= data.name %>" required>
+          <label for="product_name">Product Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Price" id="price" type="text" class="validate" name="price" value="<%= data.price %>" required>
+          <label for="price">Price</label>
+        </div>
+      </div>
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="description" type="text" class="validate" name="description" value="<%= data.description %>" required>
+          <label for="description">Descrption</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="1" id="stock" type="text" class="validate" name="stock" value="<%= data.stock %>" required>
+          <label for="stock">Stock</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field inline">Photo of Product : 
+            <input name="src" type="file" />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="btn" ><input type="submit"  value="Create"></div>
+      </div>
+    
+    </form>
+  </div>
+</div>
+
+</body>
+
+</html>
